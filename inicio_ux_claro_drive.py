@@ -204,14 +204,14 @@ def cerrar_sesion_claro_drive(webdriver_test_ux: webdriver, jsonEval):
         jsonEval["steps"][4]["output"][0]["output"] = 'Se cierra sesion correctamente'
 
     except selExcep.NoSuchElementException:
-        jsonEval["steps"][4]["output"][0]["status"] = jsonConst.SUCCESS
+        jsonEval["steps"][4]["output"][0]["status"] = jsonConst.FAILED
         jsonEval["steps"][4]["status"] = jsonConst.SUCCESS
-        jsonEval["steps"][4]["output"][0]["output"] = 'No fue posibles realizar el cierre de sesion'
+        jsonEval["steps"][4]["output"][0]["output"] = 'No fue posible realizar el cierre de sesion'
 
     except selExcep.ElementClickInterceptedException:
-        jsonEval["steps"][4]["output"][0]["status"] = jsonConst.SUCCESS
+        jsonEval["steps"][4]["output"][0]["status"] = jsonConst.FAILED
         jsonEval["steps"][4]["status"] = jsonConst.SUCCESS
-        jsonEval["steps"][4]["output"][0]["output"] = 'No fue posibles realizar el cierre de sesion'
+        jsonEval["steps"][4]["output"][0]["output"] = 'No fue posible realizar el cierre de sesion'
 
     tiempo_step_final = Temporizador.obtener_tiempo_timer() - tiempo_step_inicio
     fecha_fin = Temporizador.obtener_fecha_tiempo_actual()
@@ -296,8 +296,8 @@ def main():
     json_evaluacion_claro_drive['time'] = tiempo_final_ejecucion_prueba
     json_evaluacion_claro_drive['status'] = verificacion_estatus_final(json_evaluacion_claro_drive)
 
-    json_evaluacion_claro_drive = GeneradorJsonBaseEvaluacion. \
-        establecer_estructura_principal_json(json_args['user'], json_evaluacion_claro_drive)
+    #json_evaluacion_claro_drive = GeneradorJsonBaseEvaluacion. \
+    #    establecer_estructura_principal_json(json_args['user'], json_evaluacion_claro_drive)
 
     time.sleep(2)
 
