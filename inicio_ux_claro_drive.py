@@ -205,12 +205,12 @@ def cerrar_sesion_claro_drive(webdriver_test_ux: webdriver, jsonEval):
 
     except selExcep.NoSuchElementException:
         jsonEval["steps"][4]["output"][0]["status"] = jsonConst.FAILED
-        jsonEval["steps"][4]["status"] = jsonConst.SUCCESS
+        jsonEval["steps"][4]["status"] = jsonConst.FAILED
         jsonEval["steps"][4]["output"][0]["output"] = 'No fue posible realizar el cierre de sesion'
 
     except selExcep.ElementClickInterceptedException:
         jsonEval["steps"][4]["output"][0]["status"] = jsonConst.FAILED
-        jsonEval["steps"][4]["status"] = jsonConst.SUCCESS
+        jsonEval["steps"][4]["status"] = jsonConst.FAILED
         jsonEval["steps"][4]["output"][0]["output"] = 'No fue posible realizar el cierre de sesion'
 
     tiempo_step_final = Temporizador.obtener_tiempo_timer() - tiempo_step_inicio
